@@ -8,20 +8,28 @@
 //   palindrome("abcdefg") === false
 
 function palindrome(str) {
-    var charArray = str.split('');
-    var result = true;
-
-    for (var i = 0, j = charArray.length - 1; i < j; i++, j--) {
-        if (charArray[i] != charArray[j]) {
-            result = false;
-            break;
-        }
-    }
-
-    return result;
+    return str.split('').every((c, i) => {
+        return c == str[str.length - 1 - i];
+    });
 }
 
+// solution 2
+// function palindrome(str) {
+//     var charArray = str.split('');
+//     var result = true;
 
+//     for (var i = 0, j = charArray.length - 1; i < j; i++, j--) {
+//         if (charArray[i] != charArray[j]) {
+//             result = false;
+//             break;
+//         }
+//     }
+
+//     return result;
+// }
+
+
+// solution 1
 // function palindrome(str) {
 //     var revStr = str.split('').reverse().join('');
 //     return str === revStr;
