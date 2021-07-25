@@ -24,7 +24,7 @@ function palindrome(str) {
 
 // function palindrome(str) {
 //     var revStr = str.split('').reverse().join('');
-//     return str == revStr;
+//     return str === revStr;
 // }
 
 module.exports = palindrome;
