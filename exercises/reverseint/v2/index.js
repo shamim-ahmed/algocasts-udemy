@@ -25,17 +25,4 @@ function reverseInt(n) {
     return result;
 }
 
-// solution 1
-// function reverseInt(n) {
-//     var valueStr = Math.abs(n).toString();
-//     var resultStr = valueStr.split('').reverse().join('');
-//     var result = Number.parseInt(resultStr);
-
-//     if (n < 0) {
-//         result = -result;
-//     }
-
-//     return result;
-// }
-
 module.exports = reverseInt;
