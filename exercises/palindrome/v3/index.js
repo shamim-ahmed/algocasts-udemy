@@ -13,26 +13,4 @@ function palindrome(str) {
     });
 }
 
-// solution 2
-// function palindrome(str) {
-//     var charArray = str.split('');
-//     var result = true;
-
-//     for (var i = 0, j = charArray.length - 1; i < j; i++, j--) {
-//         if (charArray[i] != charArray[j]) {
-//             result = false;
-//             break;
-//         }
-//     }
-
-//     return result;
-// }
-
-
-// solution 1
-// function palindrome(str) {
-//     var revStr = str.split('').reverse().join('');
-//     return str === revStr;
-// }
-
 module.exports = palindrome;
