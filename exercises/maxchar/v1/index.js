@@ -7,7 +7,7 @@
 
 function maxChar(str) {
     let data = {};
-    let maxChar = null;
+    let maxChar = '';
     let maxValue = 0;
 
     for (let c of str) {
