@@ -10,10 +10,14 @@
 
 // NOTE: This solution is not as efficient as the other ones
 function anagrams(input1, input2) {
-    const str1 = input1.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
-    const str2 = input2.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+    const str1 = processString(input1);
+    const str2 = processString(input2);
 
     return str1 === str2;
+}
+
+function processString(str) {
+    return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 }
 
 module.exports = anagrams;
