@@ -18,15 +18,21 @@
 //       '####'
 
 function steps(n) {
-    for (let i = 1; i <= n; i++) {
-        let str = compute('', n, i, 1);
-        console.log(str);
-    }
+    compute('', n, 1, 1);
 }
 
 function compute(str, n, i, j) {
+    if (i > n) {
+        // we have covered all rows
+        return;
+    }
+
     if (j > n) {
-        return str;
+        // we have covered all columns for current row
+        console.log(str);
+        // go to next row
+        compute('', n, i + 1, 1);
+        return;
     }
 
     let tmp = '';
@@ -37,7 +43,8 @@ function compute(str, n, i, j) {
         tmp = str + ' ';
     }
 
-    return compute(tmp, n, i, j + 1);
+    // consider next column
+    compute(tmp, n, i, j + 1);
 }
 
 module.exports = steps;
