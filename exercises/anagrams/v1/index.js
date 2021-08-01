@@ -12,18 +12,18 @@ function anagrams(input1, input2) {
     let string1 = input1.toLowerCase();
     let string2 = input2.toLowerCase();
 
-    let characterMap1 = getCharacterMap(string1);
-    let characterMap2 = getCharacterMap(string2);
+    let charMap1 = getCharacterMap(string1);
+    let charMap2 = getCharacterMap(string2);
 
-    if (Object.keys(characterMap1).length != Object.keys(characterMap2).length) {
+    if (Object.keys(charMap1).length != Object.keys(charMap2).length) {
         return false;
     }
 
     let result = true;
 
-    for (let c in characterMap1) {
-        let count1 = characterMap1[c];
-        let count2 = characterMap2[c];
+    for (let c in charMap1) {
+        let count1 = charMap1[c];
+        let count2 = charMap2[c];
 
         if (count1 != count2) {
             result = false;
