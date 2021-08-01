@@ -9,11 +9,11 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(input1, input2) {
-    let string1 = input1.toLowerCase();
-    let string2 = input2.toLowerCase();
+    let str1 = input1.toLowerCase();
+    let str2 = input2.toLowerCase();
 
-    let charMap1 = getCharacterMap(string1);
-    let charMap2 = getCharacterMap(string2);
+    let charMap1 = getCharacterMap(str1);
+    let charMap2 = getCharacterMap(str2);
 
     if (Object.keys(charMap1).length != Object.keys(charMap2).length) {
         return false;
