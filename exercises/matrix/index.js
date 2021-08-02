@@ -15,6 +15,60 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-function matrix(n) {}
+function matrix(n) {
+    const RIGHT = 0;
+    const DOWN = 1;
+    const LEFT = 2;
+    const UP = 3;
+    const EMPTY_VALUE = 0;
+    const CELL_COUNT = n * n;
+    
+    // initialize matrix
+    const values = [];
+
+    for (let k = 0; k < n; k++) {
+        values[k] = Array(n).fill(EMPTY_VALUE);
+    }
+
+    let direction = RIGHT;
+    let i = 0;
+    let j = 0;
+
+    for (let k = 1; k <= CELL_COUNT; k++) {
+        values[i][j] = k;
+
+        if (direction === RIGHT) {
+            if (j === n - 1 || values[i][j + 1] != EMPTY_VALUE) {
+                direction = DOWN;
+                i++;
+            } else {
+                j++;
+            }
+        } else if (direction === DOWN) {
+            if (i === n - 1 || values[i + 1][j] != EMPTY_VALUE) {
+                direction = LEFT;
+                j--;
+            } else {
+                i++;
+            }
+        } else if (direction === LEFT) {
+            if (j === 0 || values[i][j - 1] != EMPTY_VALUE) {
+                direction = UP;
+                i--;
+            } else {
+                j--;
+            }
+        } else if (direction === UP) {
+            if (i == 0 || values[i - 1][j] != EMPTY_VALUE) {
+                direction = RIGHT;
+                j++;
+            } else {
+                i--;
+            }
+        }
+    }
+
+    return values;
+}
 
 module.exports = matrix;
