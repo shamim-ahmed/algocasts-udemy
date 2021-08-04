@@ -24,10 +24,10 @@ function matrix(n) {
     const CELL_COUNT = n * n;
     
     // initialize matrix
-    const values = [];
+    const resultArray = [];
 
     for (let k = 0; k < n; k++) {
-        values[k] = Array(n).fill(EMPTY_VALUE);
+        resultArray[k] = Array(n).fill(EMPTY_VALUE);
     }
 
     let direction = RIGHT;
@@ -35,31 +35,31 @@ function matrix(n) {
     let j = 0;
 
     for (let k = 1; k <= CELL_COUNT; k++) {
-        values[i][j] = k;
+        resultArray[i][j] = k;
 
         if (direction === RIGHT) {
-            if (j === n - 1 || values[i][j + 1] != EMPTY_VALUE) {
+            if (j === n - 1 || resultArray[i][j + 1] != EMPTY_VALUE) {
                 direction = DOWN;
                 i++;
             } else {
                 j++;
             }
         } else if (direction === DOWN) {
-            if (i === n - 1 || values[i + 1][j] != EMPTY_VALUE) {
+            if (i === n - 1 || resultArray[i + 1][j] != EMPTY_VALUE) {
                 direction = LEFT;
                 j--;
             } else {
                 i++;
             }
         } else if (direction === LEFT) {
-            if (j === 0 || values[i][j - 1] != EMPTY_VALUE) {
+            if (j === 0 || resultArray[i][j - 1] != EMPTY_VALUE) {
                 direction = UP;
                 i--;
             } else {
                 j--;
             }
         } else if (direction === UP) {
-            if (i == 0 || values[i - 1][j] != EMPTY_VALUE) {
+            if (i == 0 || resultArray[i - 1][j] != EMPTY_VALUE) {
                 direction = RIGHT;
                 j++;
             } else {
@@ -68,7 +68,7 @@ function matrix(n) {
         }
     }
 
-    return values;
+    return resultArray;
 }
 
 module.exports = matrix;
