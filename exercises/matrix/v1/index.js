@@ -24,7 +24,7 @@ function matrix(n) {
     const CELL_COUNT = n * n;
     
     // initialize matrix
-    const resultArray = [];
+    let resultArray = [];
 
     for (let k = 0; k < n; k++) {
         resultArray[k] = Array(n).fill(EMPTY_VALUE);

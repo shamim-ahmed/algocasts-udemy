@@ -16,8 +16,8 @@
 //     [10,  9,  8, 7]]
 
 function matrix(n) {
-    const resultArray = [];
     const EMPTY_VALUE = 0;
+    let resultArray = [];
 
     for (let i = 0; i < n; i++) {
         resultArray[i] = Array(n).fill(EMPTY_VALUE);
