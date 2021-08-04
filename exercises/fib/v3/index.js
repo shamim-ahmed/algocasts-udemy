@@ -8,21 +8,14 @@
 // Example:
 //   fib(4) === 3
 
-// solution using memoization
+// recursive solution
+// WARNING: this solution is the worst one in terms of time and space complexity
 function fib(n) {
     if (n < 2) {
         return n;
     }
 
-    let result = [];
-    result.push(0);
-    result.push(1);
-
-    for (let i = 2; i <= n; i++) {
-        result[i] = result[i - 1] + result[i - 2];
-    }
-
-    return result[n];
+    return fib(n - 1) + fib(n - 2);
 }
 
 module.exports = fib;
