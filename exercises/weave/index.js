@@ -24,6 +24,36 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+function weave(sourceOne, sourceTwo) {
+    let resultQueue = new Queue();
+    let sourceOneEmpty = false;
+    let sourceTwoEmpty = false;
+
+    while (!sourceOneEmpty && !sourceTwoEmpty) {
+        if (sourceOne.peek()) {
+            resultQueue.add(sourceOne.remove());
+        } else {
+            sourceOneEmpty = true;
+        }
+
+        if (sourceTwo.peek()) {
+            resultQueue.add(sourceTwo.remove());
+        } else {
+            sourceTwoEmpty = true;
+        }
+    }
+
+    if (!sourceOneEmpty) {
+        while (sourceOne.peek()) {
+            resultQueue.add(sourceOne.remove());
+        }
+    } else if (!sourceTwoEmpty) {
+        while (sourceTwo.peek()) {
+            resultQueue.add(sourceTwo.remove());
+        }
+    }
+
+    return resultQueue;
+}
 
 module.exports = weave;
