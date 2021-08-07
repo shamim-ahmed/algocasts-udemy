@@ -82,19 +82,19 @@ class LinkedList {
 
     insertLast(val) {
         if (this.count === 0) {
-            this.head = new Node(val);
-        } else {
-            let p = this.head;
-            let q = p.next;
-
-            while (q != null) {
-                p = q;
-                q = q.next;
-            }
-
-            p.next = new Node(val);
+            this.insertFirst(val);
+            return;
         }
 
+        let p = this.head;
+        let q = p.next;
+
+        while (q != null) {
+            p = q;
+            q = q.next;
+        }
+
+        p.next = new Node(val);
         this.count++;
     }
 
