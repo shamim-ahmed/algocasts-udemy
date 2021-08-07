@@ -137,7 +137,7 @@ class LinkedList {
     }
 
     insertAt(val, idx) {
-        if (this.count === 0 || idx == 0) {
+        if (idx == 0) {
             this.insertFirst(val);
             return;
         }
