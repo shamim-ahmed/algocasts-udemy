@@ -17,8 +17,7 @@ class Node {
     }
 
     add(val) {
-        let tmpNode = new Node(val);
-        this.children.unshift(tmpNode);
+        this.children.push(new Node(val));
     }
 
     remove(val) {
