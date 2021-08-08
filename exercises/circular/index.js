@@ -13,18 +13,23 @@
 //   circular(l) // true
 
 function circular(list) {
-    let data = [];
-    let p = list.getFirst();
+    let slow = list.getFirst();
+    let fast = list.getFirst();
+
+    if (slow == null) {
+        return null;
+    }
+
     let result = false;
 
-    while (p != null) {
-        if (data.indexOf(p) >= 0) {
-            result = true;
-            break;
-        }
+    while (fast.next != null && fast.next.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
 
-        data.push(p);
-        p = p.next;
+        if (slow == fast) {
+            result = true;
+            break;        
+        }
     }
 
     return result;
