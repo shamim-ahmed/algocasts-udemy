@@ -25,12 +25,16 @@ class LinkedList {
         return this.count;
     }
 
+    isEmpty() {
+        return this.count === 0;
+    }
+
     getFirst() {
         return this.head;
     }
 
     getLast() {
-        if (this.count === 0) {
+        if (this.isEmpty()) {
             return this.head;
         }
 
@@ -49,7 +53,7 @@ class LinkedList {
     }
 
     removeFirst() {
-        if (this.count === 0) {
+        if (this.isEmpty()) {
             return;
         }
 
@@ -58,7 +62,7 @@ class LinkedList {
     }
 
     removeLast() {
-        if (this.count === 0) {
+        if (this.isEmpty()) {
             return;
         }
 
@@ -81,7 +85,7 @@ class LinkedList {
     }
 
     insertLast(val) {
-        if (this.count === 0) {
+        if (this.isEmpty()) {
             this.insertFirst(val);
             return;
         }
