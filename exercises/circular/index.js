@@ -12,6 +12,22 @@
 //   c.next = b;
 //   circular(l) // true
 
-function circular(list) {}
+function circular(list) {
+    let data = [];
+    let p = list.getFirst();
+    let result = false;
+
+    while (p != null) {
+        if (data.indexOf(p) >= 0) {
+            result = true;
+            break;
+        }
+
+        data.push(p);
+        p = p.next;
+    }
+
+    return result;
+}
 
 module.exports = circular;
