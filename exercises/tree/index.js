@@ -11,9 +11,9 @@
 // function that gets called with each element in the tree
 
 class Node {
-    constructor(data) {
+    constructor(data, children = []) {
         this.data = data;
-        this.children = [];
+        this.children = children;
     }
 
     add(val) {
@@ -31,11 +31,48 @@ class Node {
         }
 
         if (idx >= 0) {
-            this.children.splice(idx, 1);            
+            this.children.splice(idx, 1);
         }
     }
 }
 
-class Tree {}
+class Tree {
+    constructor() {
+        this.root = null;
+    }
+
+    traverseBF(func) {
+        this.breadthFirst(this.root, func);
+    }
+
+    breadthFirst(node, func) {
+        if (node === null) {
+            return;
+        }
+
+        func(node);
+
+        for (let child of node.children) {
+            this.breadthFirst(child, func);
+        }
+
+    }
+
+    traverseDF(func) {
+        this.depthFirst(this.root, func);
+    }
+
+    depthFirst(node, func) {
+        if (node === null) {
+            return;
+        }
+
+        for (let child of node.children) {
+            this.depthFirst(child, func);
+        }
+
+        func(node);
+    }
+}
 
 module.exports = { Tree, Node };
