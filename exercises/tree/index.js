@@ -41,32 +41,35 @@ class Tree {
         this.root = null;
     }
 
-    traverseBF(func) {
-        this.breadthFirst(this.root, func);
-    }
-
-    breadthFirst(node, func) {
-        if (node === null) {
+    traverseBF(func) {    
+        if (this.root === null) {
             return;
         }
 
-        func(node);
+        const nodeArray = [];
+        nodeArray.push(this.root);
+        let i = 0;
+        
+        while (i < nodeArray.length) {
+            const node = nodeArray[i];
+            func(node);
+            i++;
 
-        for (let child of node.children) {
-            this.breadthFirst(child, func);
+            for(let child of node.children) {
+                nodeArray.push(child);
+            }
         }
-
     }
 
     traverseDF(func) {
+        if (this.root === null) {
+            return;
+        }
+
         this.depthFirst(this.root, func);
     }
 
     depthFirst(node, func) {
-        if (node === null) {
-            return;
-        }
-
         for (let child of node.children) {
             this.depthFirst(child, func);
         }
