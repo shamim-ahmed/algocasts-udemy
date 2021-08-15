@@ -8,7 +8,7 @@
 //   palindrome("abcdefg") === false
 
 function palindrome(str) {
-    var revStr = str.split('').reverse().join('');
+    const revStr = str.split('').reverse().join('');
     return str === revStr;
 }
 
