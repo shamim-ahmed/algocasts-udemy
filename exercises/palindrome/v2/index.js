@@ -8,11 +8,11 @@
 //   palindrome("abcdefg") === false
 
 function palindrome(str) {
-    var charArray = str.split('');
-    var result = true;
+    const charArray = str.split('');
+    let result = true;
 
-    for (var i = 0, j = charArray.length - 1; i < j; i++, j--) {
-        if (charArray[i] != charArray[j]) {
+    for (let i = 0, j = charArray.length - 1; i < j; i++, j--) {
+        if (charArray[i] !== charArray[j]) {
             result = false;
             break;
         }
