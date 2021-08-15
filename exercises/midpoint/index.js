@@ -16,7 +16,7 @@ function midpoint(list) {
     let slow = list.getFirst();
     let fast = list.getFirst();
 
-    if (slow == null) {
+    if (slow === null) {
         return null;
     }
 
