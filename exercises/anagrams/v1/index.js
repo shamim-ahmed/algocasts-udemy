@@ -22,8 +22,8 @@ function anagrams(input1, input2) {
     let result = true;
 
     for (let c in charMap1) {
-        let count1 = charMap1[c];
-        let count2 = charMap2[c];
+        const count1 = charMap1[c];
+        const count2 = charMap2[c];
 
         if (count1 !== count2) {
             result = false;
@@ -35,11 +35,11 @@ function anagrams(input1, input2) {
 }
 
 function getCharacterMap(inputStr) {
-    let resultMap = {};
+    const resultMap = {};
 
     for (let i = 0; i < inputStr.length; i++) {
-        let c = inputStr.charAt(i);
-        let code = inputStr.charCodeAt(i);
+        const c = inputStr.charAt(i);
+        const code = inputStr.charCodeAt(i);
 
         if (!isAlphaNumeric(code)) {
             continue;
