@@ -15,17 +15,17 @@ function anagrams(input1, input2) {
     const charMap1 = getCharacterMap(str1);
     const charMap2 = getCharacterMap(str2);
 
-    if (Object.keys(charMap1).length != Object.keys(charMap2).length) {
+    if (Object.keys(charMap1).length !== Object.keys(charMap2).length) {
         return false;
     }
 
     let result = true;
 
     for (let c in charMap1) {
-        let count1 = charMap1[c];
-        let count2 = charMap2[c];
+        const count1 = charMap1[c];
+        const count2 = charMap2[c];
 
-        if (count1 != count2) {
+        if (count1 !== count2) {
             result = false;
             break;
         }
@@ -38,7 +38,7 @@ function getCharacterMap(inputStr) {
     const resultMap = {};
 
     for (let c of inputStr) {    
-        let count = resultMap[c] + 1 || 1; 
+        const count = (resultMap[c] + 1) || 1;
         resultMap[c] = count;
     }
 
