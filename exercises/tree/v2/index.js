@@ -46,8 +46,7 @@ class Tree {
             return;
         }
 
-        const nodeArray = [];
-        nodeArray.push(this.root);
+        const nodeArray = [this.root];
         
         while(nodeArray.length > 0) {
             const node = nodeArray.shift();
@@ -62,14 +61,12 @@ class Tree {
             return;
         }
 
-        this.depthFirst(this.root, func);
-    }
+        const nodeArray = [this.root];
 
-    depthFirst(node, func) {
-        func(node);
-
-        for (let child of node.children) {
-            this.depthFirst(child, func);
+        while (nodeArray.length > 0) {
+            const node = nodeArray.shift();
+            nodeArray.unshift(...node.children);
+            func(node);
         }
     }
 }
