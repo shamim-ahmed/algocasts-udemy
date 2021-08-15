@@ -20,13 +20,13 @@ class Node {
 
     insert(key) {
         if (key < this.data) {
-            if (this.left != null) {
+            if (this.left !== null) {
                 this.left.insert(key);
             } else {
                 this.left = new Node(key);
             }
         } else if (key > this.data) {
-            if (this.right != null) {
+            if (this.right !== null) {
                 this.right.insert(key);
             } else {
                 this.right = new Node(key);
@@ -40,11 +40,11 @@ class Node {
         }
 
         if (key < this.data) {
-            return this.left != null ? this.left.contains(key) : null;
+            return this.left !== null ? this.left.contains(key) : null;
         } 
 
         if (key > this.data) {
-            return this.right != null ? this.right.contains(key) : null;
+            return this.right !== null ? this.right.contains(key) : null;
         }
     }
 }
