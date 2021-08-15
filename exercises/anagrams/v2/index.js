@@ -9,23 +9,23 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(input1, input2) {
-    let str1 = input1.replace(/[^\w]/g, '').toLowerCase();
-    let str2 = input2.replace(/[^\w]/g, '').toLowerCase();
+    const str1 = input1.replace(/[^\w]/g, '').toLowerCase();
+    const str2 = input2.replace(/[^\w]/g, '').toLowerCase();
 
-    let charMap1 = getCharacterMap(str1);
-    let charMap2 = getCharacterMap(str2);
+    const charMap1 = getCharacterMap(str1);
+    const charMap2 = getCharacterMap(str2);
 
-    if (Object.keys(charMap1).length != Object.keys(charMap2).length) {
+    if (Object.keys(charMap1).length !== Object.keys(charMap2).length) {
         return false;
     }
 
     let result = true;
 
     for (let c in charMap1) {
-        let count1 = charMap1[c];
-        let count2 = charMap2[c];
+        const count1 = charMap1[c];
+        const count2 = charMap2[c];
 
-        if (count1 != count2) {
+        if (count1 !== count2) {
             result = false;
             break;
         }
@@ -35,7 +35,7 @@ function anagrams(input1, input2) {
 }
 
 function getCharacterMap(inputStr) {
-    let resultMap = {};
+    const resultMap = {};
 
     for (let c of inputStr) {    
         let count = resultMap[c];
