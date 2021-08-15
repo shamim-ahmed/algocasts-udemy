@@ -70,11 +70,11 @@ class Tree {
     }
 
     depthFirst(node, func) {
+        func(node);
+
         for (let child of node.children) {
             this.depthFirst(child, func);
         }
-
-        func(node);
     }
 }
 
